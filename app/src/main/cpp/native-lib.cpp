@@ -1,5 +1,5 @@
 #include <jni.h>
-#include <string>
+#include <android/binder_ibinder.h>
 
 
 extern "C" JNIEXPORT jstring JNICALL

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.beancurdv.vibrator_sample"
-        minSdk = 24
+        minSdk = 33
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"

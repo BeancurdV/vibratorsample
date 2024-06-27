@@ -69,3 +69,12 @@ cc_library_static {
 
 5. 然后想办法传递parcel对象
 
+
+# 相关链接信息
+1.[Android Binder 底层实现原理](https://blog.csdn.net/ykun089/article/details/133985363)
+2.[Android Developer 官网](https://developer.android.com/ndk/reference/group/ndk-binder)
+3.[HAL: 将HIDL 接口改造为Stable AIDL](https://blog.csdn.net/weixin_60253080/article/details/127810200)
+4.[vnd binder和binder共存问题](https://juejin.cn/post/7368308963127394304#heading-8)
+5.[Android native进程间通信实例-binder篇](https://cloud.tencent.com/developer/article/1504415)
+6.[binder的两种C语言实现方式](https://blog.csdn.net/u010160644/article/details/125278190)
+

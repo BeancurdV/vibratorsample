@@ -78,3 +78,10 @@ cc_library_static {
 5.[Android native进程间通信实例-binder篇](https://cloud.tencent.com/developer/article/1504415)
 6.[binder的两种C语言实现方式](https://blog.csdn.net/u010160644/article/details/125278190)
 
+## 方式二 通过binder去获取 值IPC State
+1. [libhwbinder](/system/libhwbinder)系统binder库 real实现
+2. [libbinder](frameworks/native/libs/binder/Android.bp)
+
+## 方式三 通过binder service_manager去获取
+/frameworks/native/cmds/servicemanager/bctest.c
+servicemanager

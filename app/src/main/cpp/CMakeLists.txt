@@ -36,5 +36,5 @@ include_directories(android)
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
         android
-        binder_ndk
+#        binder_ndk
         log)

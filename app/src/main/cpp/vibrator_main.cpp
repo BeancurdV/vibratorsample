@@ -4,6 +4,7 @@
 #include <binder/IPCThreadState.h>
 #include <binder/IServiceManager.h>
 #include <android-base/logging.h>
+#include "LogUtils.h"
 
 using namespace android;
 // libbinder
@@ -28,6 +29,11 @@ int main(int, char**) {
 //        LOG(INFO) << "Cannot find service manager";
 //    } else {
         sp<IBinder> binder = sm->getService(String16("vibrator_manager"));
+        if (binder != nullptr) {
+            LOGD("Sharknade Binder info: %p", binder.get());
+        } else {
+            LOGD("Sharknade Binder is null");
+        }
 //        if (binder.get() == nullptr) {
 //            LOG(INFO) << "Cannot find vibrator_manager";
 //        } else {

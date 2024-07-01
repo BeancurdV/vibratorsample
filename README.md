@@ -106,3 +106,7 @@ servicemanager
  > scp beancurd@121.37.117.214:/home/beancurd/rk3568_android_sdk/rk3568_android12_SDK/out/target/product/rk3568_s/system/lib/liblog.so -P 65068 .
 
 ../../rk3568_android12_SDK/prebuilts/clang/host/linux-x86/clang-r416183b1/bin/clang++ -o vibrator_main.o -I include/ vibrator_main.cpp  -std=c++17 -lc++_shared
+
+
+输入结果：
+Sharknade Binder info: 0xb400007809678490

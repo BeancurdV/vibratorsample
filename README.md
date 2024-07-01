@@ -85,3 +85,24 @@ cc_library_static {
 ## 方式三 通过binder service_manager去获取
 /frameworks/native/cmds/servicemanager/bctest.c
 servicemanager
+
+
+
+# 相关头文件
+../../rk3568_android12_SDK/frameworks/native/include/binder/IServiceManager.h
+../../rk3568_android12_SDK/frameworks/native/libs/binder/include/binder/IServiceManager.h
+../../rk3568_android12_SDK/frameworks/native/include/binder/IInterface.h
+../../rk3568_android12_SDK/frameworks/native/libs/binder/include/binder/IInterface.h
+../../rk3568_android12_SDK/system/core/libutils/include/utils/VectorImpl.h
+ ../../rk3568_android12_SDK/system/logging/liblog/include/log/log_id.h
+ ../../rk3568_android12_SDK/system/logging/liblog/include/log/log.h
+ /system/core/libsystem/include/system/graphics.h
+
+ out/target/product/rk3568_s/system/lib/libbinder.so
+ out/target/product/rk3568_s/system/lib/libutils.so
+  out/target/product/rk3568_s/system/lib/libcutils.so
+ out/target/product/rk3568_s/system/lib/liblog.so
+
+ > scp beancurd@121.37.117.214:/home/beancurd/rk3568_android_sdk/rk3568_android12_SDK/out/target/product/rk3568_s/system/lib/liblog.so -P 65068 .
+
+../../rk3568_android12_SDK/prebuilts/clang/host/linux-x86/clang-r416183b1/bin/clang++ -o vibrator_main.o -I include/ vibrator_main.cpp  -std=c++17 -lc++_shared

@@ -38,3 +38,26 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
         android
 #        binder_ndk
         log)
+
+
+# 设置C++标准为C++17
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(VIBRATOR vibrator_main)
+include_directories(include)
+add_executable(${VIBRATOR}
+        vibrator_main.cpp)
+
+# 指定NDK的STL库
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -stdlib=libc++")
+
+# 链接目标库
+target_link_libraries(
+        ${VIBRATOR}
+        android
+        log
+        c++_shared
+)
+
+#cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-21 ..

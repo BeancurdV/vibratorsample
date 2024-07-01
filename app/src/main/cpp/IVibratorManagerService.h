@@ -1,8 +1,10 @@
 #pragma once
 
-#include <androi/os/VibrationAttributes.h>
-#include <androi/os/VibratorInfo.h>
-#include <android/os/IVibratorStateListener.h>
+#include "VibrationAttributes.h"
+#include "VibratorInfo.h"
+#include "IVibratorStateListener.h"
+#include "CombinedVibration.h"
+#include "VibratorInfo.h"
 #include <binder/IBinder.h>
 #include <binder/IInterface.h>
 #include <binder/Status.h>

@@ -3,7 +3,7 @@
 #include <binder/IBinder.h>
 #include <binder/IInterface.h>
 #include <utils/Errors.h>
-#include <android/os/IVibratorManagerService.h>
+#include "IVibratorManagerService.h"
 
 namespace android {
 

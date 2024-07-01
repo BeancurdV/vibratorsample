@@ -47,7 +47,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(VIBRATOR vibrator_main)
 include_directories(include)
 add_executable(${VIBRATOR}
-        vibrator_main.cpp)
+        vibrator_main.cpp
+        IVibratorManagerService.h
+        BpVibratorManagerService.h
+        CombinedVibration.h
+        IVibratorStateListener.h
+        VibrationAttributes.h
+        VibratorInfo.h
+        )
 
 set_target_properties(${VIBRATOR} PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/out

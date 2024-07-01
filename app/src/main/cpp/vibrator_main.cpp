@@ -5,6 +5,7 @@
 #include <binder/IServiceManager.h>
 #include <android-base/logging.h>
 #include "LogUtils.h"
+#include "BpVibratorManagerService.h"
 
 using namespace android;
 // libbinder
@@ -24,14 +25,18 @@ int main(int, char**) {
     // publish surface flinger
     // sp<IServiceManager> sm(defaultServiceManager());
     sp<IServiceManager> sm = defaultServiceManager();
-    // sp<content::pm::IPackageManagerNative> package_mgr;
+//     sp<os::IVibratorManagerService> vibratorManagerService;
+    os::IVibratorManagerService* x;
 //    if (sm.get() == nullptr) {
 //        LOG(INFO) << "Cannot find service manager";
 //    } else {
         sp<IBinder> binder = sm->getService(String16("vibrator_manager"));
         if (binder != nullptr) {
             LOGD("Sharknade Binder info: %p", binder.get());
-            package_mgr = interface_cast<content::pm::IPackageManagerNative>(binder);
+            x = reinterpret_cast<os::IVibratorManagerService*>(binder.get());
+            auto * vibratorSize = new ::std::vector<int32_t>();
+            x->getVibratorIds(vibratorSize);
+            LOGD("Sharknade vibratorSize info: %lu", vibratorSize->size());
         } else {
             LOGD("Sharknade Binder is null");
         }

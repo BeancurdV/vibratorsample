@@ -49,11 +49,12 @@ include_directories(include)
 add_executable(${VIBRATOR}
         vibrator_main.cpp
         IVibratorManagerService.h
-        BpVibratorManagerService.cpp
+        BpVibratorManagerService.h
         CombinedVibration.h
         IVibratorStateListener.h
         VibrationAttributes.h
         VibratorInfo.h
+        IVibratorManagerService.cpp
         )
 
 set_target_properties(${VIBRATOR} PROPERTIES
@@ -83,8 +84,8 @@ set_target_properties(log PROPERTIES IMPORTED_LOCATION ${SHARED_LIB_DIR}/liblog.
 target_link_libraries(
         ${VIBRATOR}
         binder
-        cutils
         utils
+        cutils
         log
 )
 

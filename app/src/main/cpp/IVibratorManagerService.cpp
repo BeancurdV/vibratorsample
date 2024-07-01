@@ -1,17 +1,17 @@
-#include <android/os/IVibratorManagerService.h>
-#include <android/os/BpVibratorManagerService.h>
+#include "IVibratorManagerService.h"
+#include "BpVibratorManagerService.h"
 
 namespace android {
 
 namespace os {
 
-DO_NOT_DIRECTLY_USE_ME_IMPLEMENT_META_INTERFACE(VibratorManagerService, "android.os.IVibratorManagerService")
+ DO_NOT_DIRECTLY_USE_ME_IMPLEMENT_META_INTERFACE(VibratorManagerService, "android.os.IVibratorManagerService")
 
 }  // namespace os
 
 }  // namespace android
-#include <android/os/BpVibratorManagerService.h>
-#include <android/os/BnVibratorManagerService.h>
+#include "BpVibratorManagerService.h"
+#include "BnVibratorManagerService.h"
 #include <binder/Parcel.h>
 #include <android-base/macros.h>
 
@@ -22,6 +22,8 @@ namespace os {
 BpVibratorManagerService::BpVibratorManagerService(const ::android::sp<::android::IBinder>& _aidl_impl)
     : BpInterface<IVibratorManagerService>(_aidl_impl){
 }
+
+
 
 ::android::binder::Status BpVibratorManagerService::getVibratorIds(::std::vector<int32_t>* _aidl_return) {
   ::android::Parcel _aidl_data;
@@ -47,10 +49,10 @@ BpVibratorManagerService::BpVibratorManagerService(const ::android::sp<::android
   if (!_aidl_status.isOk()) {
     return _aidl_status;
   }
-  _aidl_ret_status = _aidl_reply.readInt32Vector(_aidl_return);
-  if (((_aidl_ret_status) != (::android::OK))) {
-    goto _aidl_error;
-  }
+//  _aidl_ret_status = _aidl_reply.readInt32Vector(_aidl_return);
+//  if (((_aidl_ret_status) != (::android::OK))) {
+//    goto _aidl_error;
+//  }
   _aidl_error:
   _aidl_status.setFromStatusT(_aidl_ret_status);
   return _aidl_status;
@@ -358,7 +360,7 @@ BpVibratorManagerService::BpVibratorManagerService(const ::android::sp<::android
 }  // namespace os
 
 }  // namespace android
-#include <android/os/BnVibratorManagerService.h>
+#include "BnVibratorManagerService.h"
 #include <binder/Parcel.h>
 #include <binder/Stability.h>
 

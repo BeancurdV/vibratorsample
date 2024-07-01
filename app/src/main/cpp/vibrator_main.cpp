@@ -5,7 +5,7 @@
 #include <binder/IServiceManager.h>
 #include <android-base/logging.h>
 #include "LogUtils.h"
-#include "BpVibratorManagerService.cpp"
+#include "BpVibratorManagerService.h"
 
 using namespace android;
 // libbinder
@@ -33,9 +33,10 @@ int main(int, char**) {
         sp<IBinder> binder = sm->getService(String16("vibrator_manager"));
         if (binder != nullptr) {
             LOGD("Sharknade Binder info: %p", binder.get());
-            x = reinterpret_cast<os::IVibratorManagerService*>(binder.get());
+            os::BpVibratorManagerService bpVms(binder.get());
+//            bpVms = interface_cast<os::IVibratorManagerService*>(binder.get());
             auto * vibratorSize = new ::std::vector<int32_t>();
-            x->getVibratorIds(vibratorSize);
+            bpVms.getVibratorIds(vibratorSize);
             LOGD("Sharknade vibratorSize info: %lu", vibratorSize->size());
         } else {
             LOGD("Sharknade Binder is null");

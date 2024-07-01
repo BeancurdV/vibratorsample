@@ -1,7 +1,7 @@
 #pragma once
 
 #include <binder/IInterface.h>
-#include <android/os/IVibratorManagerService.h>
+#include "IVibratorManagerService.h"
 
 namespace android {
 

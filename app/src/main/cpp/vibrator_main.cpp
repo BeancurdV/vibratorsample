@@ -31,6 +31,7 @@ int main(int, char**) {
         sp<IBinder> binder = sm->getService(String16("vibrator_manager"));
         if (binder != nullptr) {
             LOGD("Sharknade Binder info: %p", binder.get());
+            package_mgr = interface_cast<content::pm::IPackageManagerNative>(binder);
         } else {
             LOGD("Sharknade Binder is null");
         }

@@ -110,3 +110,6 @@ servicemanager
 
 输入结果：
 Sharknade Binder info: 0xb400007809678490
+
+震动驱动对应AIDL生成目录
+/out/soong/.intermediates/hardware/interfaces/vibrator/aidl/android.hardware.vibrator-V2-cpp-source/gen/include/android/hardware/vibrator/

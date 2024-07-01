@@ -28,6 +28,18 @@ public:
   virtual ::android::binder::Status setAlwaysOnEffect(int32_t uid, const ::android::String16& opPkg, int32_t alwaysOnId, const ::android::os::CombinedVibration& vibration, const ::android::os::VibrationAttributes& attributes, bool* _aidl_return) = 0;
   virtual ::android::binder::Status vibrate(int32_t uid, const ::android::String16& opPkg, const ::android::os::CombinedVibration& vibration, const ::android::os::VibrationAttributes& attributes, const ::android::String16& reason, const ::android::sp<::android::IBinder>& token) = 0;
   virtual ::android::binder::Status cancelVibrate(int32_t usageFilter, const ::android::sp<::android::IBinder>& token) = 0;
+
+  enum {
+        GET_VIBRATOR_IDS = IBinder::FIRST_CALL_TRANSACTION,
+        GET_VIBRATOR_INFO,
+        IS_VIBRATING,
+        REGISTER,
+        UNREGISTER,
+        SET_ALWAYS,
+        VIBRATE,
+        CANCEL_VIBRATE,
+  };
+
 };  // class IVibratorManagerService
 
 class IVibratorManagerServiceDefault : public IVibratorManagerService {

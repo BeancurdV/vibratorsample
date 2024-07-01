@@ -49,7 +49,7 @@ include_directories(include)
 add_executable(${VIBRATOR}
         vibrator_main.cpp
         IVibratorManagerService.h
-        BpVibratorManagerService.h
+        BpVibratorManagerService.cpp
         CombinedVibration.h
         IVibratorStateListener.h
         VibrationAttributes.h

@@ -5,7 +5,7 @@
 #include <binder/IServiceManager.h>
 #include <android-base/logging.h>
 #include "LogUtils.h"
-#include "BpVibratorManagerService.h"
+#include "BpVibratorManagerService.cpp"
 
 using namespace android;
 // libbinder

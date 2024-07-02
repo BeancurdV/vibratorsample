@@ -50,13 +50,36 @@ BpVibratorManagerService::BpVibratorManagerService(const ::android::sp<::android
     return _aidl_status;
   }
 //  _aidl_ret_status = _aidl_reply.readInt32Vector(_aidl_return);
-//  if (((_aidl_ret_status) != (::android::OK))) {
-//    goto _aidl_error;
-//  }
+  _aidl_ret_status = readInt32Vector(_aidl_reply,_aidl_return);
+  if (((_aidl_ret_status) != (::android::OK))) {
+    goto _aidl_error;
+  }
   _aidl_error:
   _aidl_status.setFromStatusT(_aidl_ret_status);
   return _aidl_status;
 }
+
+::android::status_t BpVibratorManagerService::readInt32Vector(Parcel &parcel,
+                                                                    std::vector<int32_t> *vec) const {
+  if (vec == nullptr) {
+    return BAD_VALUE;
+  }
+
+  int32_t size;
+  status_t status = parcel.readInt32(&size);
+  if (status != OK) {
+    return status;
+  }
+
+  if (size < 0) {
+    vec->clear();
+    return OK;
+  }
+
+  vec->resize(size);
+  return parcel.read(vec->data(), size * sizeof(int32_t));
+}
+
 
 ::android::binder::Status BpVibratorManagerService::getVibratorInfo(int32_t vibratorId, ::android::os::VibratorInfo* _aidl_return) {
   ::android::Parcel _aidl_data;

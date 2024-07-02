@@ -21,6 +21,8 @@ namespace android {
             ::android::binder::Status setAlwaysOnEffect(int32_t uid, const ::android::String16& opPkg, int32_t alwaysOnId, const ::android::os::CombinedVibration& vibration, const ::android::os::VibrationAttributes& attributes, bool* _aidl_return) override;
             ::android::binder::Status vibrate(int32_t uid, const ::android::String16& opPkg, const ::android::os::CombinedVibration& vibration, const ::android::os::VibrationAttributes& attributes, const ::android::String16& reason, const ::android::sp<::android::IBinder>& token) override;
             ::android::binder::Status cancelVibrate(int32_t usageFilter, const ::android::sp<::android::IBinder>& token) override;
+            ::android::status_t  readInt32Vector(Parcel& parcel, std::vector<int32_t>* vec) const;
+
         };  // class BpVibratorManagerService
 
 

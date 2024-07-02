@@ -1,5 +1,6 @@
 #include "IVibratorManagerService.h"
 #include "BpVibratorManagerService.h"
+#include "LogUtils.h"
 
 namespace android {
 
@@ -31,17 +32,28 @@ BpVibratorManagerService::BpVibratorManagerService(const ::android::sp<::android
   ::android::Parcel _aidl_reply;
   ::android::status_t _aidl_ret_status = ::android::OK;
   ::android::binder::Status _aidl_status;
+
+  LOGD("Sharknade Binder : writeInterfaceToken ");
+
   _aidl_ret_status = _aidl_data.writeInterfaceToken(getInterfaceDescriptor());
   if (((_aidl_ret_status) != (::android::OK))) {
     goto _aidl_error;
   }
+
+  LOGD("Sharknade Binder : transact ")
+
   _aidl_ret_status = remote()->transact(BnVibratorManagerService::TRANSACTION_getVibratorIds, _aidl_data, &_aidl_reply, 0);
+
+  LOGD("Sharknade Binder : check resp status : %d " , _aidl_ret_status )
+
   if (UNLIKELY(_aidl_ret_status == ::android::UNKNOWN_TRANSACTION && IVibratorManagerService::getDefaultImpl())) {
-     return IVibratorManagerService::getDefaultImpl()->getVibratorIds(_aidl_return);
+    LOGD("Sharknade Binder : delegate ")
+    return IVibratorManagerService::getDefaultImpl()->getVibratorIds(_aidl_return);
   }
   if (((_aidl_ret_status) != (::android::OK))) {
     goto _aidl_error;
   }
+  LOGD("Sharknade Binder : parse resp")
   _aidl_ret_status = _aidl_status.readFromParcel(_aidl_reply);
   if (((_aidl_ret_status) != (::android::OK))) {
     goto _aidl_error;
@@ -50,10 +62,12 @@ BpVibratorManagerService::BpVibratorManagerService(const ::android::sp<::android
     return _aidl_status;
   }
 //  _aidl_ret_status = _aidl_reply.readInt32Vector(_aidl_return);
+  LOGD("Sharknade Binder : parse vector")
   _aidl_ret_status = readInt32Vector(_aidl_reply,_aidl_return);
   if (((_aidl_ret_status) != (::android::OK))) {
     goto _aidl_error;
   }
+  LOGD("Sharknade Binder : parse done")
   _aidl_error:
   _aidl_status.setFromStatusT(_aidl_ret_status);
   return _aidl_status;

@@ -44,6 +44,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
+
 set(VIBRATOR vibrator_main)
 include_directories(include)
 add_executable(${VIBRATOR}
